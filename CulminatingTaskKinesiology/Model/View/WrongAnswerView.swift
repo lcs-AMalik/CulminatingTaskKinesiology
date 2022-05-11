@@ -15,7 +15,38 @@ struct WrongAnswerView: View {
     
     // MARK: Computed properties
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+        
+        Text("Wrong Answered!")
+            .font(.title)
+            .padding()
+            
+            HStack {
+                Text("What is this bone?")
+                VStack {
+                Text("Answer: Femur")
+                Text("Answered: Tibia")
+                }
+                
+                DiagramView(image: "skeleton",
+                            horizontalPadding: 50)
+                
+            }
+            .padding()
+            
+            HStack {
+                Text("What is this bone?")
+                VStack {
+                Text("Answer: Femur")
+                Text("Answered: Tibia")
+                }
+                
+                DiagramView(image: "skeleton",
+                            horizontalPadding: 50)
+            }
+            .padding()
+        }
+        
     }
 }
 
