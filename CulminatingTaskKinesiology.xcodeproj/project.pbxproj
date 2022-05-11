@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		90BDDD8F282B7581000FDA97 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BDDD8E282B7581000FDA97 /* QuestionView.swift */; };
 		90BDDD93282B7660000FDA97 /* DiagramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BDDD92282B7660000FDA97 /* DiagramView.swift */; };
+		90BDDD95282BF939000FDA97 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BDDD94282BF938000FDA97 /* Quiz.swift */; };
 		90D0EDF3282B69BC00D97DD2 /* CulminatingTaskKinesiologyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0EDF2282B69BC00D97DD2 /* CulminatingTaskKinesiologyApp.swift */; };
 		90D0EDF5282B69BC00D97DD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0EDF4282B69BC00D97DD2 /* ContentView.swift */; };
 		90D0EDF7282B6A1300D97DD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D0EDF6282B6A1300D97DD2 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		90BDDD8E282B7581000FDA97 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		90BDDD92282B7660000FDA97 /* DiagramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagramView.swift; sourceTree = "<group>"; };
+		90BDDD94282BF938000FDA97 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		90D0EDEF282B69BC00D97DD2 /* CulminatingTaskKinesiology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CulminatingTaskKinesiology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D0EDF2282B69BC00D97DD2 /* CulminatingTaskKinesiologyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulminatingTaskKinesiologyApp.swift; sourceTree = "<group>"; };
 		90D0EDF4282B69BC00D97DD2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 		90BDDD90282B759D000FDA97 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90BDDD94282BF938000FDA97 /* Quiz.swift */,
 				90BDDD91282B75A4000FDA97 /* View */,
 			);
 			path = Model;
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90BDDD93282B7660000FDA97 /* DiagramView.swift in Sources */,
+				90BDDD95282BF939000FDA97 /* Quiz.swift in Sources */,
 				90D0EDF5282B69BC00D97DD2 /* ContentView.swift in Sources */,
 				90BDDD8F282B7581000FDA97 /* QuestionView.swift in Sources */,
 				90D0EDF3282B69BC00D97DD2 /* CulminatingTaskKinesiologyApp.swift in Sources */,
