@@ -16,10 +16,6 @@ struct WrongAnswerView: View {
     // MARK: Computed properties
     var body: some View {
         VStack {
-        
-        Text("Wrong Answered!")
-            .font(.title)
-            .padding()
             
             HStack {
                 Text("What is this bone?")
@@ -46,12 +42,16 @@ struct WrongAnswerView: View {
             }
             .padding()
         }
-        
+        .navigationTitle("Wrong Answered!")
+        .padding()
     }
 }
 
 struct WrongAnswerView_Previews: PreviewProvider {
     static var previews: some View {
-        WrongAnswerView()
+        NavigationView {
+            WrongAnswerView()
+        }
+        
     }
 }

@@ -28,15 +28,11 @@ struct QuestionView: View {
             
             HStack {
                 
-                Spacer()
-                
             // Input
             TextField("",
                       text: .constant(""),
                       prompt: Text("Type answer..."))
                 .padding()
-                
-                Spacer()
                 
             }
             
@@ -58,6 +54,7 @@ struct QuestionView: View {
                 Text("Submit")
             })
             .buttonStyle(.bordered)
+            
                 
                 Image(systemName: "x.square")
                     .resizable()
@@ -73,14 +70,19 @@ struct QuestionView: View {
                 //                 CONDITION1  AND  CONDITION2             true  false
                 //    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
             }
-            .padding(.horizontal, 75)
+            //.padding(.horizontal, 75)
            
         }
+        .navigationTitle("Question")
+        .padding()
     }
 }
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView()
+        NavigationView {
+            QuestionView()
+        }
+        
     }
 }

@@ -16,10 +16,7 @@ struct StatisticView: View {
     // MARK: Computed properties
     var body: some View {
         VStack {
-             Text("Statistics!")
-                .font(.title)
-                .padding()
-            
+
             HStack {
             
             Text("This week:  5/25")
@@ -29,13 +26,17 @@ struct StatisticView: View {
                 .padding()
             }
         }
-       // .navigationTitle("Statistics!")
+        .navigationTitle("Statistics!")
+        .padding()
         
     }
 }
 
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticView()
+        NavigationView {
+            StatisticView()
+        }
+        
     }
 }
