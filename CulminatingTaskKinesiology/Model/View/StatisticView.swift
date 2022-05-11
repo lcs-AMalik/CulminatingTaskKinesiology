@@ -15,7 +15,22 @@ struct StatisticView: View {
     
     // MARK: Computed properties
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+             Text("Statistics!")
+                .font(.title)
+                .padding()
+            
+            HStack {
+            
+            Text("This week:  5/25")
+                .padding()
+            
+            Text("25%")
+                .padding()
+            }
+        }
+       // .navigationTitle("Statistics!")
+        
     }
 }
 
