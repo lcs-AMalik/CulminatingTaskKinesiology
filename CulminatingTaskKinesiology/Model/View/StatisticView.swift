@@ -19,22 +19,22 @@ struct StatisticView: View {
         
         NavigationView {
             
-        VStack {
-
-            HStack {
-            
-            Text("This week:  5/25")
-                .padding()
-            
-            Text("25%")
-                .padding()
+            VStack {
+                
+                HStack {
+                    
+                    Text("This week:  5/25")
+                        .padding()
+                    
+                    Text("25%")
+                        .padding()
+                }
             }
+            .navigationTitle("Statistics!")
+            .padding()
+            
         }
-        .navigationTitle("Statistics!")
-        .padding()
-        
     }
-}
 }
 
 struct StatisticView_Previews: PreviewProvider {

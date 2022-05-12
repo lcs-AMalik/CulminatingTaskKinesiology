@@ -24,9 +24,9 @@ struct DiagramView: View {
                 .padding(.horizontal, horizontalPadding)
             
             Spacer()
-
+            
         }
-
+        
     }
 }
 

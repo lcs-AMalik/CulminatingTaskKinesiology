@@ -24,7 +24,7 @@ struct ContentView: View {
                 Text("Let's play!")
                     .font(.title)
             })
-            .buttonStyle(.bordered)
+                .buttonStyle(.bordered)
         }
     }
 }
