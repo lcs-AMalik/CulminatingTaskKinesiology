@@ -17,6 +17,8 @@ struct QuestionView: View {
     // MARK: Computed properties
     var body: some View {
         
+        NavigationView {
+        
         VStack {
             
             DiagramView(image: "skeleton",
@@ -79,6 +81,7 @@ struct QuestionView: View {
     }
 }
 
+}
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {

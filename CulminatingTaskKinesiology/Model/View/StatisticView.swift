@@ -16,6 +16,9 @@ struct StatisticView: View {
     
     // MARK: Computed properties
     var body: some View {
+        
+        NavigationView {
+            
         VStack {
 
             HStack {
@@ -31,6 +34,7 @@ struct StatisticView: View {
         .padding()
         
     }
+}
 }
 
 struct StatisticView_Previews: PreviewProvider {

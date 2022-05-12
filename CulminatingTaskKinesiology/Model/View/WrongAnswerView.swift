@@ -16,38 +16,42 @@ struct WrongAnswerView: View {
     
     // MARK: Computed properties
     var body: some View {
-        VStack {
+        
+        NavigationView {
             
-            HStack {
-                Text("What is this bone?")
-                VStack {
-                Text("Answer: Femur")
-                Text("Answered: Tibia")
-                }
-                
-                DiagramView(image: "skeleton",
-                            horizontalPadding: 50)
-                
-            }
-            .padding()
             
-            HStack {
-                Text("What is this bone?")
-                VStack {
-                Text("Answer: Femur")
-                Text("Answered: Tibia")
-                }
+            VStack {
                 
-                DiagramView(image: "skeleton",
-                            horizontalPadding: 50)
+                HStack {
+                    Text("What is this bone?")
+                    VStack {
+                        Text("Answer: Femur")
+                        Text("Answered: Tibia")
+                    }
+                    
+                    DiagramView(image: "skeleton",
+                                horizontalPadding: 50)
+                    
+                }
+                .padding()
+                
+                HStack {
+                    Text("What is this bone?")
+                    VStack {
+                        Text("Answer: Femur")
+                        Text("Answered: Tibia")
+                    }
+                    
+                    DiagramView(image: "skeleton",
+                                horizontalPadding: 50)
+                }
+                .padding()
             }
+            .navigationTitle("Wrong Answered!")
             .padding()
         }
-        .navigationTitle("Wrong Answered!")
-        .padding()
     }
 }
-
 struct WrongAnswerView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
