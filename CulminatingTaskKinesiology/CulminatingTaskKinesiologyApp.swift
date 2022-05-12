@@ -9,9 +9,36 @@ import SwiftUI
 
 @main
 struct CulminatingTaskKinesiologyApp: App {
+    
+    // MARK: Stored properties
+    
+    // Source of truth for the list of favourite songs
+    @State var favourites: [Quiz] = []
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            TabView {
+                
+                QuestionView(favourites: $favourites)
+                .tabItem {
+                    Image(systemName: "questionmark.circle")
+                    Text("Question")
+                }
+                
+                WrongAnswerView(favourites: $favourites)
+                .tabItem {
+                    Image(systemName: "x.circle")
+                    Text("Wrong")
+                }
+                
+                StatisticView(favourites: $favourites)
+                .tabItem {
+                    Image(systemName: "chart.xyaxis.line")
+                    Text("Statistics")
+                }
+                
+            }
         }
     }
 }

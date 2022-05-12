@@ -11,7 +11,8 @@ struct QuestionView: View {
     
     // MARK: Stored properties
     
-    
+    // The list of favourite songs
+    @Binding var favourites: [Quiz]
     
     // MARK: Computed properties
     var body: some View {
@@ -81,7 +82,7 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            QuestionView()
+            QuestionView(favourites: .constant([testQuiz]))
         }
         
     }

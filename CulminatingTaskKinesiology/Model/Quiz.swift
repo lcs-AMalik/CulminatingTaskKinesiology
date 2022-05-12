@@ -9,10 +9,13 @@ import Foundation
 
 struct Quiz {
     
+    // MARK: Stored properties
     let answer: String
     let question: String
     
 }
+
+let testQuiz = Quiz(answer: "Femur", question: "What is the bone in your upper leg")
 
 let listOfQuiz = [
 
