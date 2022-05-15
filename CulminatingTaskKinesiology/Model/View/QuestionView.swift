@@ -10,9 +10,19 @@ import SwiftUI
 struct QuestionView: View {
     
     // MARK: Stored properties
-    
+
     // The list of favourite songs
     @Binding var favourites: [Quiz]
+    @Binding var answeredQuestions: [AnsweredQuestion]
+    
+    // View Modifiers
+    @State var questions = listOfQuiz
+    
+    @State var index = 0
+    
+    @State var userAnswer = ""
+    
+    @State var submitted = false
     
     // MARK: Computed properties
     var body: some View {
@@ -21,21 +31,19 @@ struct QuestionView: View {
             
             VStack {
                 
-                DiagramView(image: "skeleton",
+                DiagramView(image: questions[index].imageName,
                             horizontalPadding: 50)
                     .padding()
                 
                 
-                Text("What is the bone in the upper arm?")
+                Text(questions[index].question)
                     .padding()
                 
                 HStack {
                     
                     // Input
-                    TextField("",
-                              text: .constant(""),
-                              prompt: Text("Type answer..."))
-                        .padding()
+                    TextField("Answer here...", text: $userAnswer)
+                        .disabled(submitted)
                     
                 }
                 
@@ -44,7 +52,7 @@ struct QuestionView: View {
                     Image(systemName: "checkmark.circle")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(.green)
+                        .foregroundColor((userAnswer.lowercased() != questions[index].answer.lowercased() || submitted == false) ? .gray : .green)
                         .padding()
                     // Only show this when the answer given is correct
                     //            CONDITION          true  false
@@ -52,17 +60,36 @@ struct QuestionView: View {
                     
                     
                     Button(action: {
-                        ""
+                        if submitted == false {
+                            
+                            submitted.toggle()
+                            
+                            var correct = false
+                            
+                            if userAnswer == questions[index].answer {
+                                correct = true
+                            }
+                            
+                            let newAnswer = AnsweredQuestion(question: questions[index], correct: correct, userAnswer: userAnswer)
+                            
+                            answeredQuestions.append(newAnswer)
+                            
+                        } else {
+                            index = (index == questions.count - 1) ? 0 : index + 1
+                            userAnswer = ""
+                            submitted.toggle()
+                        }
                     }, label: {
-                        Text("Submit")
+                        Text((submitted == false) ? "Submit" : "Next")
                     })
+                        .disabled(userAnswer.isEmpty)
                         .buttonStyle(.bordered)
                     
                     
                     Image(systemName: "x.square")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(.red)
+                        .foregroundColor((userAnswer.lowercased() == questions[index].answer.lowercased() || submitted == false) ? .gray : .red)
                         .padding()
                     // Show this when both of the following situations are true:
                     // 1. Answer has been checked.
@@ -85,7 +112,7 @@ struct QuestionView: View {
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            QuestionView(favourites: .constant([testQuiz]))
+            QuestionView(favourites: .constant([testQuiz]), answeredQuestions: .constant([]))
         }
         
     }
