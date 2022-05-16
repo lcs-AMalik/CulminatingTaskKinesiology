@@ -10,18 +10,19 @@ import SwiftUI
 struct QuestionView: View {
     
     // MARK: Stored properties
-
-    // The list of favourite songs
+    
+    // The list of favourite Quiz
     @Binding var favourites: [Quiz]
     @Binding var answeredQuestions: [AnsweredQuestion]
     
     // View Modifiers
+    // we set question to equal listOfQuiz so we use question instead of listOfQuiz
     @State var questions = listOfQuiz
-    
+    // Each question is an index
     @State var index = 0
-    
+    // this the the users anwer
     @State var userAnswer = ""
-    
+    // controls when pressed button what happenes next.
     @State var submitted = false
     
     // MARK: Computed properties
@@ -30,17 +31,19 @@ struct QuestionView: View {
         NavigationView {
             
             VStack {
-                
+                // Contains the image, which is also taken from the quiz file.
                 DiagramView(image: questions[index].imageName,
                             horizontalPadding: 50)
                     .padding()
                 
-                
+                // Provides the question from the list
+                // index is used to identify the line of question
+                // Each index is a question in thr Quiz file.
                 Text(questions[index].question)
                     .padding()
                 
                 HStack {
-                    
+              // Contains the users input
                     // Input
                     TextField("Answer here...", text: $userAnswer)
                         .disabled(submitted)
@@ -48,17 +51,17 @@ struct QuestionView: View {
                 }
                 
                 HStack {
+                    // Controls the "check" you get when you get the question right. It checks for of the users answer is == to the questions then provides us with a green check
                     
                     Image(systemName: "checkmark.circle")
                         .resizable()
                         .scaledToFit()
                         .foregroundColor((userAnswer.lowercased() != questions[index].answer.lowercased() || submitted == false) ? .gray : .green)
                         .padding()
-                    // Only show this when the answer given is correct
-                    //            CONDITION          true  false
-                    //    .opacity(answerCorrect == true ? 1.0 : 0.0)
                     
-                    
+                // Start of button
+                    // The code basically is in works with the check mark and the "X"
+                    // Button also links with the list
                     Button(action: {
                         if submitted == false {
                             
@@ -85,24 +88,17 @@ struct QuestionView: View {
                         .disabled(userAnswer.isEmpty)
                         .buttonStyle(.bordered)
                     
+                    // Controls the "X" you get when you get the question wrong. It checks for of the users answer is == to the questions then provides us with a red x
                     
+                    // In code || means "or"
                     Image(systemName: "x.square")
                         .resizable()
                         .scaledToFit()
                         .foregroundColor((userAnswer.lowercased() == questions[index].answer.lowercased() || submitted == false) ? .gray : .red)
                         .padding()
-                    // Show this when both of the following situations are true:
-                    // 1. Answer has been checked.
-                    // 2. Answer was not correct.
-                    // Necessary since if we show this only when an answer is incorrect,
-                    // with no other conditions, it would show as soon as a new
-                    // question is generated.
-                    //                 CONDITION1  AND  CONDITION2             true  false
-                    //    .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                 }
-                //.padding(.horizontal, 75)
-                
             }
+            // Codes Title
             .navigationTitle("Question")
             .padding()
         }
