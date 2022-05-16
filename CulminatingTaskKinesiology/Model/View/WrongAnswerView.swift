@@ -13,6 +13,7 @@ struct WrongAnswerView: View {
     
     // The list of favourite songs
     @Binding var favourites: [Quiz]
+    @Binding var answeredQuestions: [AnsweredQuestion]
     
     // MARK: Computed properties
     var body: some View {
@@ -22,40 +23,42 @@ struct WrongAnswerView: View {
             
             VStack {
                 
-                HStack {
-                    Text("What is this bone?")
-                    VStack {
-                        Text("Answer: Femur")
-                        Text("Answered: Tibia")
+                ForEach(filterElements(list: answeredQuestions)) { answer in
+                    HStack {
+                        Text(answer.question.question)
+                        VStack {
+                            Text("Answer: \(answer.question.answer)")
+                            Text("Answered: \(answer.userAnswer)")
+                        }
+                        
+                        DiagramView(image: answer.question.imageName,
+                                    horizontalPadding: 50)
+                        
                     }
-                    
-                    DiagramView(image: "skeleton",
-                                horizontalPadding: 50)
+                    .padding()
                     
                 }
-                .padding()
                 
-                HStack {
-                    Text("What is this bone?")
-                    VStack {
-                        Text("Answer: Femur")
-                        Text("Answered: Tibia")
-                    }
-                    
-                    DiagramView(image: "skeleton",
-                                horizontalPadding: 50)
-                }
-                .padding()
             }
             .navigationTitle("Wrong Answered!")
             .padding()
         }
     }
+    
+    func filterElements(list: [AnsweredQuestion]) -> [AnsweredQuestion] {
+        var filteredList: [AnsweredQuestion] = []
+        
+        for element in list where !element.correct {
+            filteredList.append(element)
+        }
+        
+        return filteredList
+    }
 }
 struct WrongAnswerView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            WrongAnswerView(favourites: .constant([testQuiz]))
+            WrongAnswerView(favourites: .constant([testQuiz]), answeredQuestions: .constant([]))
         }
         
     }
