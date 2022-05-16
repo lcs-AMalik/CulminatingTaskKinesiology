@@ -25,7 +25,7 @@ struct StatisticView: View {
                 
                 HStack {
                     
-                    Text("This week:  \(correctAnswers)/\(answeredQuestions.count)")
+                    Text("Currently:  \(correctAnswers)/\(answeredQuestions.count)")
                         .padding()
                     
                     Text("\(calculatePercentage())%")
