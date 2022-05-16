@@ -14,25 +14,26 @@ struct CulminatingTaskKinesiologyApp: App {
     
     // Source of truth for the list of favourite songs
     @State var favourites: [Quiz] = []
+    @State var answeredQuestions: [AnsweredQuestion] = []
     
     var body: some Scene {
         WindowGroup {
             
             TabView {
                 
-                QuestionView(favourites: $favourites)
+                QuestionView(favourites: $favourites, answeredQuestions: $answeredQuestions)
                 .tabItem {
                     Image(systemName: "questionmark.circle")
                     Text("Question")
                 }
                 
-                WrongAnswerView(favourites: $favourites)
+                WrongAnswerView(favourites: $favourites, answeredQuestions: $answeredQuestions)
                 .tabItem {
                     Image(systemName: "x.circle")
                     Text("Wrong")
                 }
                 
-                StatisticView(favourites: $favourites)
+                StatisticView(favourites: $favourites, answeredQuestions: $answeredQuestions)
                 .tabItem {
                     Image(systemName: "chart.xyaxis.line")
                     Text("Statistics")
