@@ -17,3 +17,4 @@ struct AnsweredQuestion: Identifiable {
     var correct: Bool
     var userAnswer: String
 }
+
