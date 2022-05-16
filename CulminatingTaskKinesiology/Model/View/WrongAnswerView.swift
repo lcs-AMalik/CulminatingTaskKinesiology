@@ -22,10 +22,11 @@ struct WrongAnswerView: View {
             
             
             VStack {
-                
+                // ForEach question that was wrong
                 ForEach(filterElements(list: answeredQuestions)) { answer in
                     HStack {
                         Text(answer.question.question)
+                        
                         VStack {
                             Text("Answer: \(answer.question.answer)")
                             Text("Answered: \(answer.userAnswer)")
@@ -44,14 +45,14 @@ struct WrongAnswerView: View {
             .padding()
         }
     }
-    
+        // Function in order to filter out all the wrong answers
     func filterElements(list: [AnsweredQuestion]) -> [AnsweredQuestion] {
         var filteredList: [AnsweredQuestion] = []
         
         for element in list where !element.correct {
             filteredList.append(element)
         }
-        
+        // What we get in return
         return filteredList
     }
 }

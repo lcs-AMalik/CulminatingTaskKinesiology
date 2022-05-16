@@ -57,6 +57,7 @@ struct StatisticView: View {
         // we set correct to be answered questions in list
         let correct = correctAnswers(list: answeredQuestions)
         // Formula to find ratio
+        // We use .count to show number of elements in the list
         let ratio = Double(correct)/Double(answeredQuestions.count)
         // This is the final equation step to find % of ratio
         let percentage = ratio*100
