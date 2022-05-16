@@ -45,7 +45,7 @@ struct WrongAnswerView: View {
             .padding()
         }
     }
-        // Function in order to filter out all the wrong answers
+    // Function in order to filter out all the wrong answers
     func filterElements(list: [AnsweredQuestion]) -> [AnsweredQuestion] {
         var filteredList: [AnsweredQuestion] = []
         

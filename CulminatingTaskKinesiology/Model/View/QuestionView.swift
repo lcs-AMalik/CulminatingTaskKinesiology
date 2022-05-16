@@ -43,7 +43,7 @@ struct QuestionView: View {
                     .padding()
                 
                 HStack {
-              // Contains the users input
+                    // Contains the users input
                     // Input
                     TextField("Answer here...", text: $userAnswer)
                         .disabled(submitted)
@@ -59,7 +59,7 @@ struct QuestionView: View {
                         .foregroundColor((userAnswer.lowercased() != questions[index].answer.lowercased() || submitted == false) ? .gray : .green)
                         .padding()
                     
-                // Start of button
+                    // Start of button
                     // The code basically is in works with the check mark and the "X"
                     // Button also links with the list
                     Button(action: {

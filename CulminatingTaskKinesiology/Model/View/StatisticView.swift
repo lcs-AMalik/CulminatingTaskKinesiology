@@ -37,7 +37,7 @@ struct StatisticView: View {
             
         }
     }
-        // Added a function that tkaes correctAnswers and turns it to a INT which is correctAnswerCount
+    // Added a function that tkaes correctAnswers and turns it to a INT which is correctAnswerCount
     func correctAnswers(list: [AnsweredQuestion]) -> Int {
         var correctAnswerCount = 0
         
