@@ -18,7 +18,7 @@ struct CulminatingTaskKinesiologyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
+
             TabView {
                 
                 QuestionView(favourites: $favourites, answeredQuestions: $answeredQuestions)
